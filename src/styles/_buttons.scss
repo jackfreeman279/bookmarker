@@ -1,0 +1,75 @@
+.button {
+    $this: &;
+    @include link-reset;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing);
+    text-align: center;
+    line-height: 1;
+    background-color: var(--white);
+    border: 3px solid var(--dark-ui);
+    color: var(--dark-ui);
+    border-radius: 6px;
+    font-weight: $bold;
+    transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition), color var(--transition);
+    // in case the button is not an anchor element (it should be), cursor is set
+    cursor: pointer;
+
+    &__icon {
+        width: 2.4rem;
+        height: 2.4rem;
+        fill: currentColor;
+    }
+
+    @include hover {
+        background-color: var(--dark-ui);
+        color: var(--white);
+        transform: translateY(-1px);
+        box-shadow: -2px 2px 3px 1px rgba(#000, .15);
+
+        .tooltip {
+            transform: translateX(-50%) scale(1); // this can also be used as the hover value
+        }
+    }
+
+    &--primary {
+        border-color: var(--primary);
+        color: var(--primary);
+
+        @include hover {
+            background-color: var(--primary-hover);
+        }
+    }
+
+    &--secondary {
+        border-color: var(--secondary);
+        color: var(--secondary);
+
+        @include hover {
+            background-color: var(--secondary-hover);
+        }
+    }
+
+    &--edit {
+        border-color: var(--neutral);
+        color: var(--neutral);
+
+        @include hover {
+            background-color: var(--neutral);
+        }
+    }
+
+    &--delete {
+        border-color: var(--negative);
+        color: var(--negative);
+
+        @include hover {
+            background-color: var(--negative);
+        }
+    }
+
+    @media (max-width: $break-tablet) {
+        padding: 1.2rem var(--spacing);
+    }
+}

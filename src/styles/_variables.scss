@@ -2,10 +2,10 @@
 
 :root {
     // Colours
-    --primary: #F87666;
-    --primary-hover: #F42F15;
-    --secondary: #104F55;
-    --secondary-hover: #0A3033;
+    --primary: #f87666;
+    --primary-hover: #f42f15;
+    --secondary: #104f55;
+    --secondary-hover: #0a3033;
     --text-dark: #242424;
     --text-light: #e2e2e2;
 
@@ -15,16 +15,25 @@
     --darker-ui: #3e3e3e;
     --dark-ui: #242424;
 
+    --black: #000;
+    --white: #fff;
+
+    --positive: green;
+    --neutral: goldenrod;
+    --negative: red;
+
     // Layout
-    --wrapper-width: 136rem;
+    --wrapper-width: 102.4rem;
     --spacing-xs: .4rem;
     --spacing-s: .8rem;
     --spacing: 1.6rem;
     --spacing-l: 3.2rem;
     --spacing-xl: 6.4rem;
+
+    --transition: .25s ease;
 }
 
-// Sass Variables -- statically defined so they can be compiled 
+// Sass Variables -- statically defined so they can be compiled
 
 // Breakpoints
 $break-small-mobile: 375px;
@@ -32,7 +41,6 @@ $break-mobile: 415px;
 $break-phablet: 640px;
 $break-tablet: 840px;
 $break-desktop: 1025px;
-$break-wide: 1300px;
 
 // Fonts
 $light: 300;
