@@ -1,6 +1,9 @@
 body {
-    font-size: 1.6rem;
+    font-family: Noto Sans JP, Arial, serif;
+    font-size: 1.8rem;
     font-weight: $medium;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
@@ -33,6 +36,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: Newsreader, Garamond, serif;
     font-style: italic;
     font-weight: $bold;
 }
