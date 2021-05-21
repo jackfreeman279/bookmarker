@@ -1,4 +1,4 @@
 {
-  "src/*.css": "stylelint --syntax=scss --fix",
+  "src/*.scss": "stylelint --syntax=scss --fix",
   "*.js": ["eslint --fix", "git add"]
 }
