@@ -1,0 +1,22 @@
+/*
+ * Adds hover and focus styles for tablet (by default) and up
+ * Only keeps focus styles for below tablet (by default)
+ * If focus set to false then only hover styling will be applied
+ */
+
+@mixin hover($breakpoint: $break-tablet, $focus: true) {
+
+    @if $focus == true {
+
+        &:focus {
+            @content;
+        }
+    }
+
+    @media (min-width: $breakpoint) {
+
+        &:hover {
+            @content;
+        }
+    }
+}

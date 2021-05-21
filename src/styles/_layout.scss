@@ -1,0 +1,14 @@
+@mixin wrapper {
+    width: 100%;
+    max-width: var(--wrapper-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+
+    @media (max-width: $break-tablet) {
+        padding: 0 var(--spacing-s);
+    }
+}
+
+.wrapper {
+    @include wrapper;
+}

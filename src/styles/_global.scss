@@ -1,3 +1,23 @@
+* {
+    box-sizing: border-box;
+
+    @media (min-width: $break-tablet) {
+
+        &::-webkit-scrollbar {
+            width: 11px;
+            height: 11px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: var(--darker-ui);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+        }
+    }
+}
+
 body {
     margin: 0;
     font-family: Newsreader, Garamond, serif;
@@ -6,6 +26,49 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+ol,
+ul {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+html {
+    font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+    color: var(--text-dark);
+}
+
+button {
+    display: block;
+    border: 0;
+    outline: 0;
+}
+
+a {
+
+    @include hover {
+        text-decoration: none;
+    }
+}
+
+img {
+    max-width: 100%;
 }

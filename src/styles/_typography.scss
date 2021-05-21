@@ -1,0 +1,52 @@
+body {
+    font-size: 1.6rem;
+    font-weight: $medium;
+}
+
+h1 {
+    font-size: 3.6rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.8rem;
+}
+
+h4 {
+    font-size: 2.4rem;
+}
+
+h5 {
+    font-size: 2rem;
+}
+
+h6 {
+    font-size: 1.6rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-style: italic;
+    font-weight: $bold;
+}
+
+strong,
+.bold {
+    font-weight: $bold;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: var(--text-dark);
+    text-decoration: none;
+}

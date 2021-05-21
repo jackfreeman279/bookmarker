@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Header from './components/Header';
+
 /**
  * Application Root
  *
@@ -7,7 +9,9 @@ import React from 'react';
  */
 function App() {
     return (
-        <div className="App"></div>
+        <div className="App">
+            <Header title="Bookmarker" />
+        </div>
     );
 }
 
