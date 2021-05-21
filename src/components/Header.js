@@ -1,14 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../i/logo.svg';
 
-const Container = styled.header`
+const HomeLink = styled( Link )`
         display: flex;
         align-items: center;
         margin-bottom: var(--spacing);
         padding: var(--spacing-l) 0;
+
+        &:hover {
+
+            .logo {
+                transform: translateY(var(--spacing-xs));
+            }
+    
+            .title::after {
+                width: 100%;
+            }
+        }
+
     `;
 
 const BrandLogo = styled( Logo )`
@@ -16,6 +29,7 @@ const BrandLogo = styled( Logo )`
     height: var(--spacing-xl);
     margin-right: var(--spacing-s);
     fill: var(--text-dark);
+    transition: transform .25s ease;
 `;
 
 const Title = styled.h1`
@@ -34,10 +48,6 @@ const Title = styled.h1`
         will-change: width;
         transition: width .2s ease;
     }
-
-    &:hover::after {
-        width: 100%;
-    }
 `;
 
 /**
@@ -51,12 +61,12 @@ function Header( { title } ) {
 
     return (
         <div className="wrapper">
-            <Container>
-                <BrandLogo />
-                <Title>
+            <HomeLink to="/">
+                <BrandLogo className="logo" />
+                <Title className="title">
                     { title }
                 </Title>
-            </Container>
+            </HomeLink>
         </div>
     );
 }
