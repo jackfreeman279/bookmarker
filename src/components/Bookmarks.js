@@ -17,11 +17,10 @@ const ListItem = styled.li`
  *
  * @param {object} props - passed component props
  * @param {Array<object>} props.bookmarks - the list of individual bookmarks to render
- * @param {Function} props.editBookmark - enables a user to edit a bookmark
  * @param {Function} props.deleteBookmark - deletes a bookmark from the list
  * @returns {object} React component render
  */
-function Bookmarks( { bookmarks, editBookmark, deleteBookmark } ) {
+function Bookmarks( { bookmarks, deleteBookmark } ) {
 
     return (
         <List>
@@ -30,7 +29,7 @@ function Bookmarks( { bookmarks, editBookmark, deleteBookmark } ) {
                     bookmarks.map( bookmark => {
                         return (
                             <ListItem key={ bookmark.id }>
-                                <Bookmark bookmark={ bookmark } editBookmark={ editBookmark } deleteBookmark={ deleteBookmark } />
+                                <Bookmark bookmark={ bookmark } deleteBookmark={ deleteBookmark } />
                             </ListItem>
                         );
                     } )
@@ -44,8 +43,7 @@ function Bookmarks( { bookmarks, editBookmark, deleteBookmark } ) {
 
 Bookmarks.propTypes = {
     bookmarks: PropTypes.array,
-    editBookmark: PropTypes.function,
-    deleteBookmark: PropTypes.function
+    deleteBookmark: PropTypes.func
 };
 
 export default Bookmarks;

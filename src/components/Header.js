@@ -6,23 +6,22 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../i/logo.svg';
 
 const HomeLink = styled( Link )`
-        display: flex;
-        align-items: center;
-        margin-bottom: var(--spacing);
-        padding: var(--spacing-l) 0;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: var(--spacing-l);
+    padding-top: var(--spacing-l);
 
-        &:hover {
+    &:hover {
 
-            .logo {
-                transform: translateY(var(--spacing-xs));
-            }
-    
-            .title::after {
-                width: 100%;
-            }
+        .logo {
+            transform: translateY(var(--spacing-xs));
         }
 
-    `;
+        .title::after {
+            width: 100%;
+        }
+    }
+`;
 
 const BrandLogo = styled( Logo )`
     width: var(--spacing-xl);

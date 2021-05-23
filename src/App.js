@@ -20,15 +20,14 @@ function App() {
         }
     ] );
 
-    // const addBookmark = bookmark => {
-    //     bookmark.id = createId();
-    //     setBookmarks( previousState => {
-    //         return { ...previousState, bookmark };
-    //     } );
-    // };
-    
-    const editBookmark = bookmark => {
-        console.log( 'Edit Bookmark: ', bookmark );
+    const addBookmark = bookmarkUrl => {
+        const bookmark = {
+            id: createId(),
+            url: bookmarkUrl
+        };
+        setBookmarks( previousState => {
+            return [ ...previousState, bookmark ];
+        } );
     };
     
     const deleteBookmark = id => {
@@ -38,10 +37,9 @@ function App() {
     return (
         <div className="wrapper">
             <Header title="Bookmarker" />
-            <AddBookmark />
+            <AddBookmark addBookmark={ addBookmark } />
             <Bookmarks
                 bookmarks={ bookmarks }
-                editBookmark={ editBookmark }
                 deleteBookmark={ deleteBookmark }
             />
         </div>
