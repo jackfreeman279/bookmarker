@@ -20,3 +20,8 @@
         }
     }
 }
+
+@mixin link-reset { // remove default browser styling of a link tag
+    color: inherit;
+    text-decoration: none;
+}

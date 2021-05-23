@@ -1,0 +1,32 @@
+.tooltip {
+    position: absolute;
+    bottom: calc(100% - var(--spacing-xs));
+    left: 50%;
+    padding: var(--spacing-s) var(--spacing);
+    color: var(--text-dark);
+    background-color: var(--white);
+    border-radius: .4rem;
+    box-shadow: 0 1px 3px rgba(#000, .2);
+    white-space: nowrap;
+    font-size: 1.4rem;
+    transform: translateX(-50%) scale(0);
+    transform-origin: bottom;
+    transition: transform var(--transition);
+
+    &::after { // caret
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        border: .8rem solid transparent;
+        border-top-color: var(--white);
+        transform: translateX(-50%);
+        filter: drop-shadow(0 1px 1px rgba(#000, .2));
+    }
+
+    &.is-active {
+        transform: translateX(-50%) scale(1); // this can also be used as the hover value
+    }
+}

@@ -29,7 +29,7 @@ const BrandLogo = styled( Logo )`
     height: var(--spacing-xl);
     margin-right: var(--spacing-s);
     fill: var(--text-dark);
-    transition: transform .25s ease;
+    transition: transform var(--transition);
 `;
 
 const Title = styled.h1`
@@ -60,14 +60,12 @@ const Title = styled.h1`
 function Header( { title } ) {
 
     return (
-        <div className="wrapper">
-            <HomeLink to="/">
-                <BrandLogo className="logo" />
-                <Title className="title">
-                    { title }
-                </Title>
-            </HomeLink>
-        </div>
+        <HomeLink to="/">
+            <BrandLogo className="logo" />
+            <Title className="title">
+                { title }
+            </Title>
+        </HomeLink>
     );
 }
 
