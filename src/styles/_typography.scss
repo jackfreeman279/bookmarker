@@ -1,5 +1,14 @@
-body {
+@mixin title-font {
+    font-family: Newsreader, Garamond, serif;
+    font-style: italic;
+}
+
+@mixin copy-font {
     font-family: Noto Sans JP, Arial, serif;
+}
+
+body {
+    @include copy-font;
     font-size: 1.8rem;
     font-weight: $medium;
     -webkit-font-smoothing: antialiased;
@@ -36,8 +45,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Newsreader, Garamond, serif;
-    font-style: italic;
+    @include title-font;
     font-weight: $bold;
 }
 

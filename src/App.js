@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { createId } from './helpers/createId';
 
 import Header from './components/Header';
+import AddBookmark from './components/AddBookmark';
 import Bookmarks from './components/Bookmarks';
 
 /**
@@ -37,6 +38,7 @@ function App() {
     return (
         <div className="wrapper">
             <Header title="Bookmarker" />
+            <AddBookmark />
             <Bookmarks
                 bookmarks={ bookmarks }
                 editBookmark={ editBookmark }
