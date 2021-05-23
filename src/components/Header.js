@@ -14,7 +14,7 @@ const HomeLink = styled( Link )`
         &:hover {
 
             .logo {
-                animation: wiggle .6s ease;
+                transform: translateY(var(--spacing-xs));
             }
     
             .title::after {
@@ -29,6 +29,7 @@ const BrandLogo = styled( Logo )`
     height: var(--spacing-xl);
     margin-right: var(--spacing-s);
     fill: var(--text-dark);
+    transition: transform .25s ease;
 `;
 
 const Title = styled.h1`
