@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from './components/Header';
+import AddBookmark from './components/AddBookmark';
 
 /**
  * Application Root
@@ -11,6 +12,7 @@ function App() {
     return (
         <div className="App">
             <Header title="Bookmarker" />
+            <AddBookmark />
         </div>
     );
 }
