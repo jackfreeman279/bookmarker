@@ -2,10 +2,7 @@
 
 :root {
     // Colours
-    --primary: #f87666;
-    --primary-hover: #f42f15;
-    --secondary: #104f55;
-    --secondary-hover: #0a3033;
+    --primary: #246A73;
     --text-dark: #242424;
     --text-light: #e2e2e2;
 
@@ -18,9 +15,7 @@
     --black: #000;
     --white: #fff;
 
-    --positive: green;
-    --neutral: goldenrod;
-    --negative: red;
+    --error: #FE4A49;
 
     // Layout
     --wrapper-width: 102.4rem;
@@ -30,7 +25,7 @@
     --spacing-l: 3.2rem;
     --spacing-xl: 6.4rem;
 
-    --transition: .25s ease;
+    --transition: .2s ease;
 }
 
 // Sass Variables -- statically defined so they can be compiled

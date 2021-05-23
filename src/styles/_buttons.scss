@@ -4,7 +4,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    padding: var(--spacing);
+    padding: var(--spacing-s) var(--spacing-s);
     text-align: center;
     line-height: 1;
     background-color: var(--white);
@@ -38,7 +38,7 @@
         color: var(--primary);
 
         @include hover {
-            background-color: var(--primary-hover);
+            background-color: var(--primary);
         }
     }
 
@@ -47,25 +47,16 @@
         color: var(--secondary);
 
         @include hover {
-            background-color: var(--secondary-hover);
-        }
-    }
-
-    &--edit {
-        border-color: var(--neutral);
-        color: var(--neutral);
-
-        @include hover {
-            background-color: var(--neutral);
+            background-color: var(--secondary);
         }
     }
 
     &--delete {
-        border-color: var(--negative);
-        color: var(--negative);
+        border-color: var(--error);
+        color: var(--error);
 
         @include hover {
-            background-color: var(--negative);
+            background-color: var(--error);
         }
     }
 

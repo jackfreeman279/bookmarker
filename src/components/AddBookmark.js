@@ -21,15 +21,17 @@ const Input = styled.input`
     min-width: 32rem;
     margin-left: var(--spacing-s);
     padding: var(--spacing-s);
-    border: 2px solid var(--medium-ui);
+    border: 3px solid var(--medium-ui);
     border-radius: 6px;
 
+    &:focus,
     &:active {
         border-color: var(--primary);
+        outline: none;
     }
 
     &.error {
-        border-color: var(--negative);
+        border-color: var(--error);
     }
 `;
 
