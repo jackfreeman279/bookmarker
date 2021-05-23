@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { createId } from './helpers/createId';
+import { SESSION_STORAGE_NAME } from './helpers/constants';
 
 import Header from './components/Header';
 import AddBookmark from './components/AddBookmark';
@@ -13,26 +14,35 @@ import Bookmarks from './components/Bookmarks';
  */
 function App() {
 
-    const [ bookmarks, setBookmarks ] = useState( [
-        {
-            id: createId(),
-            url: 'https://theguardian.com/uk'
-        }
-    ] );
+    const [ bookmarks, setBookmarks ] = useState( [] );
 
     const addBookmark = bookmarkUrl => {
-        const bookmark = {
+
+        const newBookmark = {
             id: createId(),
             url: bookmarkUrl
         };
-        setBookmarks( previousState => {
-            return [ ...previousState, bookmark ];
-        } );
+
+        const allBookmarks = [ ...bookmarks, newBookmark ];
+        setBookmarks( allBookmarks ); // set in state
+        localStorage.setItem( SESSION_STORAGE_NAME, JSON.stringify( allBookmarks ) ); // also set in local storage for page refresh
     };
     
     const deleteBookmark = id => {
-        setBookmarks( bookmarks.filter( bookmark => bookmark.id === id ) );
+        const deletedBookmark = bookmarks.filter( bookmark => bookmark.id !== id );
+        setBookmarks( deletedBookmark ); // set in state
+        localStorage.setItem( SESSION_STORAGE_NAME, JSON.stringify( deletedBookmark ) ); // also set in local storage for page refresh
     };
+
+    useEffect( () => {
+        const getSavedBookmarks = () => {
+            const savedBookmarks = localStorage.getItem( SESSION_STORAGE_NAME );
+            if ( savedBookmarks ) {
+                setBookmarks( JSON.parse( savedBookmarks ) );
+            }
+        };
+        getSavedBookmarks();
+    }, [] );
 
     return (
         <div className="wrapper">
