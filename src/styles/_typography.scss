@@ -13,6 +13,10 @@ body {
     font-weight: $medium;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    @media (max-width: $break-tablet) {
+        font-size: 1.6rem;
+    }
 }
 
 h1 {

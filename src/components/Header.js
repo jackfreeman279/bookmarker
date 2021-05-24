@@ -8,6 +8,10 @@ import { ReactComponent as Logo } from '../i/logo.svg';
 const Container = styled.header`
     margin-bottom: var(--spacing-l);
     padding-top: var(--spacing-l);
+
+    @media (max-width: 415px) {
+        margin-bottom: var(--spacing);
+    }
 `;
 
 const HomeLink = styled( Link )`
@@ -28,16 +32,21 @@ const HomeLink = styled( Link )`
 `;
 
 const BrandLogo = styled( Logo )`
-    width: var(--spacing-xl);
-    height: var(--spacing-xl);
+    width: 6.4rem;
+    height: 6.4rem;
     margin-right: var(--spacing-s);
     fill: var(--text-dark);
     transition: transform var(--transition);
+
+    @media (max-width: 840px) {
+        width: 4rem;
+        height: 4rem;
+    }
 `;
 
 const Title = styled.h1`
     position: relative;
-    font-size: var(--spacing-xl);
+    font-size: 6.4rem;
     line-height: 1;
     
     &::after { // partial underline
@@ -51,10 +60,23 @@ const Title = styled.h1`
         will-change: width;
         transition: width .2s ease;
     }
+
+    @media (max-width: 840px) {
+        font-size: 4rem;
+    }
 `;
 
 const Subtitle = styled.h4`
-    padding-left: var(--spacing-xl);
+    padding-left: 6.4rem;
+
+    @media (max-width: 840px) {
+        padding-left: 4.6rem;
+        font-size: 2rem;
+    }
+
+    @media (max-width: 415px) {
+        font-size: 1.6rem;
+    }
 `;
 
 /**

@@ -17,6 +17,10 @@ const Form = styled.form`
     align-items: flex-end;
     justify-content: center;
     font-size: 1.8rem;
+
+    @media (max-width: 840px) {
+        font-size: 1.6rem;
+    }
 `;
 
 const Label = styled.label`
