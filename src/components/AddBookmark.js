@@ -50,7 +50,7 @@ const Button = styled.button`
     margin-left: var(--spacing-s);
 
     &.delete-all {
-        margin-right: calc(var(--spacing-s) + 1px); // added border width of bookmark tile to align
+        margin-right: var(--spacing-s);
 
         &:hover,
         &:focus {
