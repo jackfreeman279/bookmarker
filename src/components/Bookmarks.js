@@ -5,12 +5,8 @@ import styled from 'styled-components';
 import Bookmark from './Bookmark';
 
 const List = styled.ol`
-    margin-bottom: var(--spacing-l);
-    list-style-type: none;
-`;
-
-const ListItem = styled.li`
     margin-bottom: var(--spacing-s);
+    list-style-type: none;
 `;
 
 /**
@@ -25,13 +21,16 @@ function Bookmarks( { bookmarks, deleteBookmark } ) {
 
     return (
         <List>
+            <h3>
+                Your Bookmarks
+            </h3>
             {
                 bookmarks && bookmarks.length > 0 ? (
                     bookmarks.map( bookmark => {
                         return (
-                            <ListItem key={ bookmark.id }>
+                            <li key={ bookmark.id }>
                                 <Bookmark bookmark={ bookmark } deleteBookmark={ deleteBookmark } />
-                            </ListItem>
+                            </li>
                         );
                     } )
                 ) : (

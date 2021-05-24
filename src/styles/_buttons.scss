@@ -11,14 +11,13 @@
     border: 2px solid var(--dark-ui);
     color: var(--dark-ui);
     border-radius: 6px;
-    font-weight: $bold;
     transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition), color var(--transition);
     // in case the button is not an anchor element (it should be), cursor is set
     cursor: pointer;
 
     &__icon {
-        width: 2.4rem;
-        height: 2.4rem;
+        width: 2.2rem;
+        height: 2.2rem;
         fill: currentColor;
     }
 

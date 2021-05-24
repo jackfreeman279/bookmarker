@@ -3,29 +3,32 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { ReactComponent as Plus } from '../i/plus.svg';
-import { ReactComponent as Delete } from '../i/delete.svg';
+import { ReactComponent as Bin } from '../i/bin.svg';
 
 const Container = styled.div`
     display: flex;
-    margin-bottom: var(--spacing);
+    align-items: flex-end;
+    margin-bottom: var(--spacing-l);
 `;
 
 const Form = styled.form`
+    width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     font-size: 1.8rem;
 `;
 
 const Label = styled.label`
+    width: 100%;
     position: relative;
 `;
 
 const Input = styled.input`
-    min-width: 32rem;
-    margin-left: var(--spacing-s);
+    width: 100%;
+    margin-top: var(--spacing-xs);
     padding: var(--spacing-s);
-    border: 2px solid var(--medium-ui);
+    border: 2px solid var(--light-ui);
     border-radius: 6px;
 
     &:focus,
@@ -43,8 +46,7 @@ const Button = styled.button`
     margin-left: var(--spacing-s);
 
     &.delete-all {
-        margin-left: auto;
-        margin-right: calc(var(--spacing) + 1px); // added border width of bookmark tile to align
+        margin-right: calc(var(--spacing-s) + 1px); // added border width of bookmark tile to align
 
         &:hover,
         &:focus {
@@ -124,7 +126,7 @@ function AddBookmark( { addBookmark, deleteAllBookmarks } ) {
         <Container>
             <Form onSubmit={ event => handleSubmit( event ) }>
                 <Label>
-                    Add new Bookmark:
+                    To add a new Bookmark, paste it into the box below:
                     <Input
                         type="text"
                         value={ formState.value }
@@ -142,7 +144,7 @@ function AddBookmark( { addBookmark, deleteAllBookmarks } ) {
                 onClick={ () => deleteAllBookmarks() }
                 className="delete-all button button--delete button--fill">
                 <span className="tooltip tooltip--right">Delete All Bookmarks</span>
-                <Delete className="button__icon"/>
+                <Bin className="button__icon"/>
             </Button>
         </Container>
     );

@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../i/logo.svg';
 
+const Container = styled.header`
+    margin-bottom: var(--spacing-l);
+    padding-top: var(--spacing-l);
+`;
+
 const HomeLink = styled( Link )`
     display: inline-flex;
     align-items: center;
-    margin-bottom: var(--spacing-l);
-    padding-top: var(--spacing-l);
+    margin-bottom: var(--spacing-s);
 
     &:hover {
 
@@ -36,7 +40,7 @@ const Title = styled.h1`
     font-size: var(--spacing-xl);
     line-height: 1;
     
-    &::after {
+    &::after { // partial underline
         content: '';
         width: 40%;
         height: .4rem;
@@ -49,6 +53,10 @@ const Title = styled.h1`
     }
 `;
 
+const Subtitle = styled.h4`
+    padding-left: var(--spacing-xl);
+`;
+
 /**
  * Header
  *
@@ -59,12 +67,17 @@ const Title = styled.h1`
 function Header( { title } ) {
 
     return (
-        <HomeLink to="/">
-            <BrandLogo className="logo" />
-            <Title className="title">
-                { title }
-            </Title>
-        </HomeLink>
+        <Container>
+            <HomeLink to="/">
+                <BrandLogo className="logo" />
+                <Title className="title">
+                    { title }
+                </Title>
+            </HomeLink>
+            <Subtitle>
+                Save your favourite places around the web.
+            </Subtitle>
+        </Container>
     );
 }
 

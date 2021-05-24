@@ -2,34 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { ReactComponent as Logo } from '../i/logo.svg';
 import { ReactComponent as External } from '../i/external.svg';
-import { ReactComponent as Delete } from '../i/delete.svg';
+import { ReactComponent as Cross } from '../i/cross.svg';
 
 const Container = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    padding: var(--spacing) var(--spacing) var(--spacing) var(--spacing-l);
-    border: 1px solid var(--light-ui);
-    border-radius: 6px;
+    padding: var(--spacing) var(--spacing-s);
+    border-bottom: 2px solid var(--light-ui);
     box-shadow: -1px 1px 6px 3px rgba(#000, .2);
-`;
-
-const IconContainer = styled.div`
-    width: 6.2rem;
-    height: 6.2rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-`;
-
-const Icon = styled( Logo )`
-    width: 9.6rem;
-    height: 9.6rem;
-    transform: translate(-35%, -35%);
-    fill: var(--very-light-ui);
 `;
 
 const Link = styled.a`
@@ -51,6 +33,8 @@ const ExternalIcon = styled( External )`
 
 const Button = styled.button`
     margin-left: auto;
+    background: none;
+    color: var(--error);
 
     &:hover,
     &:focus {
@@ -73,9 +57,6 @@ function Bookmark( { bookmark, deleteBookmark } ) {
 
     return (
         <Container>
-            <IconContainer>
-                <Icon />
-            </IconContainer>
             <Link
                 href={ bookmark.url }
                 target="_blank"
@@ -83,11 +64,9 @@ function Bookmark( { bookmark, deleteBookmark } ) {
                 { bookmark.url }
                 <ExternalIcon />
             </Link>
-            <Button
-                onClick={ () => deleteBookmark( bookmark.id ) }
-                className="button button--delete">
+            <Button className="button button--delete" onClick={ () => deleteBookmark( bookmark.id ) }>
                 <span className="tooltip tooltip--right">Delete Bookmark</span>
-                <Delete className="button__icon"/>
+                <Cross className="button__icon"/>
             </Button>
         </Container>
     );
