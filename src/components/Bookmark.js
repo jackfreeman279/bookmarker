@@ -16,8 +16,10 @@ const Container = styled.div`
 
 const Link = styled.a`
     position: relative;
+    padding-right: var(--spacing-s);
     color: var(--primary);
     text-decoration: none;
+    word-break: break-word;
 
     &:hover {
         text-decoration: underline;

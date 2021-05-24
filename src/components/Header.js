@@ -8,6 +8,7 @@ import { ReactComponent as Logo } from '../i/logo.svg';
 const Container = styled.header`
     margin-bottom: var(--spacing-l);
     padding-top: var(--spacing-l);
+    text-align: center;
 
     @media (max-width: 415px) {
         margin-bottom: var(--spacing);
@@ -67,10 +68,8 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h4`
-    padding-left: 6.4rem;
 
     @media (max-width: 840px) {
-        padding-left: 4.6rem;
         font-size: 2rem;
     }
 

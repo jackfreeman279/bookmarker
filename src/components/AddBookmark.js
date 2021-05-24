@@ -7,31 +7,42 @@ import { ReactComponent as Bin } from '../i/bin.svg';
 
 const Container = styled.div`
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     margin-bottom: var(--spacing-l);
+
+    @media (max-width: 840px) {
+        align-items: flex-end;
+    }
 `;
 
 const Form = styled.form`
-    width: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     font-size: 1.8rem;
 
     @media (max-width: 840px) {
         font-size: 1.6rem;
+        align-items: flex-end;
     }
 `;
 
-const Label = styled.label`
-    width: 100%;
+const InputContainer = styled.div`
     position: relative;
+    display: inline-block;
+    margin-left: var(--spacing-s);
+
+    @media (max-width: 840px) {
+        width: 100%;
+        margin-top: var(--spacing-xs);
+        margin-left: 0;
+    }
 `;
 
 const Input = styled.input`
-    width: 100%;
-    margin-top: var(--spacing-xs);
-    padding: var(--spacing-s);
+    min-width: 32rem;
+    padding: calc(var(--spacing-s) - .1rem);
     border: 2px solid var(--light-ui);
     border-radius: 6px;
 
@@ -43,6 +54,12 @@ const Input = styled.input`
 
     &.error {
         border-color: var(--error);
+    }
+
+    @media (max-width: 840px) {
+        width: 100%;
+        min-width: auto;
+        margin-left: 0;
     }
 `;
 
@@ -129,16 +146,18 @@ function AddBookmark( { addBookmark, deleteAllBookmarks } ) {
     return (
         <Container>
             <Form onSubmit={ event => handleSubmit( event ) }>
-                <Label>
-                    To add a new Bookmark, paste it into the box below:
-                    <Input
-                        type="text"
-                        value={ formState.value }
-                        onChange={ event => handleChange( event ) }
-                        placeholder={ placeholderText }
-                        className={ formError ? 'error' : '' } />
-                    <span className={ `tooltip tooltip--error ${ formError ? 'is-active' : '' }` }>{ formError }</span>
-                </Label>
+                <label>
+                    Add new Bookmark:
+                    <InputContainer>
+                        <Input
+                            type="text"
+                            value={ formState.value }
+                            onChange={ event => handleChange( event ) }
+                            placeholder={ placeholderText }
+                            className={ formError ? 'error' : '' } />
+                        <span className={ `tooltip tooltip--error ${ formError ? 'is-active' : '' }` }>{ formError }</span>
+                    </InputContainer>
+                </label>
                 <Button type="submit" className="button button--primary">
                     <span className="tooltip">Add Bookmark</span>
                     <Plus className="button__icon" />
