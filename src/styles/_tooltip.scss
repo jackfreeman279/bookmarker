@@ -46,7 +46,7 @@
             transform: translateX(0) scale(1); // this can also be used as the hover value
         }
     }
-    
+
     &--error {
         border: 1px solid var(--error);
         color: var(--error);

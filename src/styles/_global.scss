@@ -61,7 +61,7 @@ button {
 a {
     color: var(--text-dark);
     text-decoration: none;
-    
+
     @include hover {
         text-decoration: none;
     }
