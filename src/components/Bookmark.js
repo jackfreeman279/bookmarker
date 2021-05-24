@@ -51,6 +51,14 @@ const ExternalIcon = styled( External )`
 
 const Button = styled.button`
     margin-left: auto;
+
+    &:hover,
+    &:focus {
+
+        .tooltip {
+            transform: translateX(0) scale(1);
+        }
+    }
 `;
 
 /**
@@ -78,7 +86,7 @@ function Bookmark( { bookmark, deleteBookmark } ) {
             <Button
                 onClick={ () => deleteBookmark( bookmark.id ) }
                 className="button button--delete">
-                <span className="tooltip">Delete Bookmark</span>
+                <span className="tooltip tooltip--right">Delete Bookmark</span>
                 <Delete className="button__icon"/>
             </Button>
         </Container>

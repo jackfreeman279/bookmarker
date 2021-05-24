@@ -60,7 +60,11 @@
         }
     }
 
-    @media (max-width: $break-tablet) {
-        padding: 1.2rem var(--spacing);
+    &--fill {
+
+        &#{$this}--delete {
+            background-color: var(--error);
+            color: var(--white);
+        }
     }
 }

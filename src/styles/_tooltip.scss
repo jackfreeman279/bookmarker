@@ -30,6 +30,23 @@
         transform: translateX(-50%) scale(1); // this can also be used as the hover value
     }
 
+    &--right {
+        left: auto;
+        right: var(--spacing-s);
+        transform: translateX(0) scale(0);
+        transform-origin: bottom right;
+
+        &::after {
+            transform: none;
+            left: auto;
+            right: var(--spacing-s);
+        }
+
+        &.is-active {
+            transform: translateX(0) scale(1); // this can also be used as the hover value
+        }
+    }
+    
     &--error {
         border: 1px solid var(--error);
         color: var(--error);

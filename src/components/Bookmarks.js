@@ -34,7 +34,7 @@ function Bookmarks( { bookmarks, deleteBookmark } ) {
                         );
                     } )
                 ) : (
-                    'No Bookmarks yet! Use the text input at the top of the page.'
+                    'No Bookmarks yet! Use the text input at the top of the page to add your first one.'
                 )
             }
         </List>

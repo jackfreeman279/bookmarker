@@ -31,7 +31,12 @@ function App() {
     const deleteBookmark = id => {
         const deletedBookmark = bookmarks.filter( bookmark => bookmark.id !== id );
         setBookmarks( deletedBookmark ); // set in state
-        localStorage.setItem( SESSION_STORAGE_NAME, JSON.stringify( deletedBookmark ) ); // also set in local storage for page refresh
+        localStorage.setItem( SESSION_STORAGE_NAME, JSON.stringify( deletedBookmark ) ); // also delete in local storage for page refresh
+    };
+
+    const deleteAllBookmarks = () => {
+        setBookmarks( [] ); // set in state
+        localStorage.removeItem( SESSION_STORAGE_NAME ); // also remove in local storage for page refresh
     };
 
     useEffect( () => {
@@ -47,7 +52,7 @@ function App() {
     return (
         <div className="wrapper">
             <Header title="Bookmarker" />
-            <AddBookmark addBookmark={ addBookmark } />
+            <AddBookmark addBookmark={ addBookmark } deleteAllBookmarks={ deleteAllBookmarks } />
             <Bookmarks
                 bookmarks={ bookmarks }
                 deleteBookmark={ deleteBookmark }

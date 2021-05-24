@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-// import { ReactComponent as Logo } from '../i/logo.svg';
 import { ReactComponent as Plus } from '../i/plus.svg';
+import { ReactComponent as Delete } from '../i/delete.svg';
+
+const Container = styled.div`
+    display: flex;
+    margin-bottom: var(--spacing);
+`;
 
 const Form = styled.form`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--spacing);
     font-size: 1.8rem;
 `;
 
@@ -37,6 +41,19 @@ const Input = styled.input`
 
 const Button = styled.button`
     margin-left: var(--spacing-s);
+
+    &.delete-all {
+        margin-left: auto;
+        margin-right: calc(var(--spacing) + 1px); // added border width of bookmark tile to align
+
+        &:hover,
+        &:focus {
+
+            .tooltip {
+                transform: translateX(0) scale(1);
+            }
+        }
+    }
 `;
 
 /**
@@ -44,9 +61,10 @@ const Button = styled.button`
  *
  * @param {object} props - passed component props
  * @param {Function} props.addBookmark - function to add a bookmark
+ * @param {Function} props.deleteAllBookmarks - function the deletes all existing bookmarks
  * @returns {object} React component render
  */
-function AddBookmark( { addBookmark } ) {
+function AddBookmark( { addBookmark, deleteAllBookmarks } ) {
 
     const [ formState, setFormState ] = useState( { value: '' } );
     const [ formError, setFormError ] = useState( '' );
@@ -103,27 +121,36 @@ function AddBookmark( { addBookmark } ) {
     };
 
     return (
-        <Form onSubmit={ event => handleSubmit( event ) }>
-            <Label>
-                Add new Bookmark:
-                <Input
-                    type="text"
-                    value={ formState.value }
-                    onChange={ event => handleChange( event ) }
-                    placeholder={ placeholderText }
-                    className={ formError ? 'error' : '' } />
-                <span className={ `tooltip tooltip--error ${ formError ? 'is-active' : '' }` }>{ formError }</span>
-            </Label>
-            <Button type="submit" className="button button--primary">
-                <span className="tooltip">Add Bookmark</span>
-                <Plus className="button__icon" />
+        <Container>
+            <Form onSubmit={ event => handleSubmit( event ) }>
+                <Label>
+                    Add new Bookmark:
+                    <Input
+                        type="text"
+                        value={ formState.value }
+                        onChange={ event => handleChange( event ) }
+                        placeholder={ placeholderText }
+                        className={ formError ? 'error' : '' } />
+                    <span className={ `tooltip tooltip--error ${ formError ? 'is-active' : '' }` }>{ formError }</span>
+                </Label>
+                <Button type="submit" className="button button--primary">
+                    <span className="tooltip">Add Bookmark</span>
+                    <Plus className="button__icon" />
+                </Button>
+            </Form>
+            <Button
+                onClick={ () => deleteAllBookmarks() }
+                className="delete-all button button--delete button--fill">
+                <span className="tooltip tooltip--right">Delete All Bookmarks</span>
+                <Delete className="button__icon"/>
             </Button>
-        </Form>
+        </Container>
     );
 }
 
 AddBookmark.propTypes = {
-    addBookmark: PropTypes.func.isRequired
+    addBookmark: PropTypes.func.isRequired,
+    deleteAllBookmarks: PropTypes.func
 };
 
 export default AddBookmark;
