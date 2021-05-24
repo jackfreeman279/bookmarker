@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Bookmark from './Bookmark';
 
 const List = styled.ol`
+    margin-bottom: var(--spacing-l);
     list-style-type: none;
 `;
 

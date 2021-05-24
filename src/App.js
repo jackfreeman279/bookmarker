@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 import { createId } from './helpers/createId';
 import { SESSION_STORAGE_NAME } from './helpers/constants';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 import AddBookmark from './components/AddBookmark';
 import Bookmarks from './components/Bookmarks';
+
+const Container = styled.div`
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+`;
 
 /**
  * Application Root
@@ -68,14 +76,15 @@ function App() {
     }, [] );
 
     return (
-        <div className="wrapper">
+        <Container className="wrapper">
             <Header title="Bookmarker" />
             <AddBookmark addBookmark={ addBookmark } deleteAllBookmarks={ deleteAllBookmarks } />
             <Bookmarks
                 bookmarks={ bookmarks }
                 deleteBookmark={ deleteBookmark }
             />
-        </div>
+            <Footer />
+        </Container>
     );
 }
 
