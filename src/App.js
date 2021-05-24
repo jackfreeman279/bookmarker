@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { createId } from './helpers/createId';
-import { SESSION_STORAGE_NAME } from './helpers/constants';
+import { SESSION_STORAGE_NAME, BOOKMARKS_PER_PAGE } from './helpers/constants';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AddBookmark from './components/AddBookmark';
 import Bookmarks from './components/Bookmarks';
+import Pagination from './components/Pagination';
 
 const Container = styled.div`
     min-height: 100vh;
@@ -23,6 +24,7 @@ const Container = styled.div`
 function App() {
 
     const [ bookmarks, setBookmarks ] = useState( [] );
+    const [ currentPageNumber, setCurrentPageNumber ] = useState( 1 );
 
     /**
      * Adds a bookmark to the current state and local storage
@@ -60,19 +62,33 @@ function App() {
         localStorage.removeItem( SESSION_STORAGE_NAME ); // also remove in local storage for page refresh
     };
 
+    /**
+     * Splits the Bookmarks up into pages
+     *
+     * @param {Array<object>} bookmarksList - list of bookmarks from state or local storage
+     * @returns {Array} bookmarks split into pages
+     */
+    const splitBookmarksByPage = bookmarksList => {
+        const indexOfLastBookmark = currentPageNumber * BOOKMARKS_PER_PAGE;
+        const indexOfFirstBookmark = indexOfLastBookmark - BOOKMARKS_PER_PAGE;
+        const currentBookmarks = bookmarksList.slice( indexOfFirstBookmark, indexOfLastBookmark );
+        return currentBookmarks;
+    };
+
     useEffect( () => {
 
         /**
-         * Retrivee saved bookmarks from local storage
+         * Retrieve saved bookmarks from local storage
          */
-        const getSavedBookmarks = () => {
+        const loadSavedBookmarks = () => {
             const savedBookmarks = localStorage.getItem( SESSION_STORAGE_NAME );
             if ( savedBookmarks ) {
                 setBookmarks( JSON.parse( savedBookmarks ) );
             }
         };
-        getSavedBookmarks();
 
+        loadSavedBookmarks();
+        
     }, [] );
 
     return (
@@ -80,9 +96,12 @@ function App() {
             <Header title="Bookmarker" />
             <AddBookmark addBookmark={ addBookmark } deleteAllBookmarks={ deleteAllBookmarks } />
             <Bookmarks
-                bookmarks={ bookmarks }
+                bookmarks={ splitBookmarksByPage( bookmarks ) }
                 deleteBookmark={ deleteBookmark }
             />
+            <Pagination
+                bookmarks={ bookmarks }
+                setCurrentPage={ setCurrentPageNumber } />
             <Footer />
         </Container>
     );

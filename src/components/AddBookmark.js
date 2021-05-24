@@ -25,7 +25,7 @@ const Input = styled.input`
     min-width: 32rem;
     margin-left: var(--spacing-s);
     padding: var(--spacing-s);
-    border: 3px solid var(--medium-ui);
+    border: 2px solid var(--medium-ui);
     border-radius: 6px;
 
     &:focus,
