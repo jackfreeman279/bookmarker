@@ -94,11 +94,11 @@ function App() {
     return (
         <Container className="wrapper">
             <Header title="Bookmarker" />
-            <AddBookmark addBookmark={ addBookmark } deleteAllBookmarks={ deleteAllBookmarks } />
+            <AddBookmark addBookmark={ addBookmark } />
             <Bookmarks
                 bookmarks={ splitBookmarksByPage( bookmarks ) }
                 deleteBookmark={ deleteBookmark }
-            />
+                deleteAllBookmarks={ deleteAllBookmarks } />
             <Pagination
                 bookmarks={ bookmarks }
                 setCurrentPage={ setCurrentPageNumber } />

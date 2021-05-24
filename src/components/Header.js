@@ -10,7 +10,7 @@ const Container = styled.header`
     padding-top: var(--spacing-l);
     text-align: center;
 
-    @media (max-width: 415px) {
+    @media (max-width: 840px) {
         margin-bottom: var(--spacing);
     }
 `;

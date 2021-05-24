@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { ReactComponent as Plus } from '../i/plus.svg';
-import { ReactComponent as Bin } from '../i/bin.svg';
 
 const Container = styled.div`
     display: flex;
@@ -65,18 +64,6 @@ const Input = styled.input`
 
 const Button = styled.button`
     margin-left: var(--spacing-s);
-
-    &.delete-all {
-        margin-right: var(--spacing-s);
-
-        &:hover,
-        &:focus {
-
-            .tooltip {
-                transform: translateX(0) scale(1);
-            }
-        }
-    }
 `;
 
 /**
@@ -84,10 +71,9 @@ const Button = styled.button`
  *
  * @param {object} props - passed component props
  * @param {Function} props.addBookmark - function to add a bookmark
- * @param {Function} props.deleteAllBookmarks - function the deletes all existing bookmarks
  * @returns {object} React component render
  */
-function AddBookmark( { addBookmark, deleteAllBookmarks } ) {
+function AddBookmark( { addBookmark } ) {
 
     const [ formState, setFormState ] = useState( { value: '' } );
     const [ formError, setFormError ] = useState( '' );
@@ -163,19 +149,12 @@ function AddBookmark( { addBookmark, deleteAllBookmarks } ) {
                     <Plus className="button__icon" />
                 </Button>
             </Form>
-            <Button
-                onClick={ () => deleteAllBookmarks() }
-                className="delete-all button button--delete button--fill">
-                <span className="tooltip tooltip--right">Delete All Bookmarks</span>
-                <Bin className="button__icon"/>
-            </Button>
         </Container>
     );
 }
 
 AddBookmark.propTypes = {
-    addBookmark: PropTypes.func.isRequired,
-    deleteAllBookmarks: PropTypes.func
+    addBookmark: PropTypes.func.isRequired
 };
 
 export default AddBookmark;
